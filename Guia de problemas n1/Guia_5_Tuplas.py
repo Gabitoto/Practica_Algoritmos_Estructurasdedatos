@@ -1,5 +1,5 @@
-import random as r
-from tabulate import tabulate as t
+# import random as r
+# from tabulate import tabulate as t
 
 # Ejercicio numero 1:
 """A partir de una tupla numérica, devuelva la suma de sus elementos."""
