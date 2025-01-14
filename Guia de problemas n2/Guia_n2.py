@@ -5,37 +5,36 @@
 
 from tabulate import tabulate
 
-
-class cuadrado:
+class Cuadrado:
     def __init__(self):
-        self.a = 0
+        self.lado = 0
 
     def ingresar(self):
-        numero = int(input("Agrega un numero para crear el cuadrado= "))
-        self.a = numero
-        return print(self.a)
-    
-    def mostrar(self):
-        tabla = []
-        for i in range(self.a):
-            fila = []
-            for j in range(self.a):
-                fila.append("x")
-            tabla.append(fila)
-        return tabulate(tabla)
-        # return [["x" for _ in range(self.a)] for _ in range(self.a)]
-    
+        while True:
+            try:
+                numero = int(input("Agrega un número positivo para crear el cuadrado: "))
+                if numero > 0:
+                    self.lado = numero
+                    break
+                else:
+                    print("El número debe ser positivo.")
+            except ValueError:
+                print("Por favor, ingresa un número entero válido.")
 
-    def calcular(self):
-        pass
+    def mostrar(self):
+        tabla = [["x" for _ in range(self.lado)] for _ in range(self.lado)]
+        return tabulate(tabla, tablefmt="plain")
 
     def area(self):
-        pass
+        return self.lado ** 2
 
-    def perimetro():
-        pass
+    def perimetro(self):
+        return 4 * self.lado
 
 if __name__ == "__main__":
-    main = cuadrado()
-    main.ingresar()
-    print(main.mostrar())
+    cuadrado = Cuadrado()
+    cuadrado.ingresar()
+    print("\nRepresentación del cuadrado:")
+    print(cuadrado.mostrar())
+    print(f"\nÁrea del cuadrado: {cuadrado.area()}")
+    print(f"Perímetro del cuadrado: {cuadrado.perimetro()}")
